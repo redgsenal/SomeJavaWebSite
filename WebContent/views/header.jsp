@@ -1,5 +1,7 @@
-<%@page import="com.site.utils.Utility"%>
+<!-- always put taglibs on top first --> 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.site.global.Global"%>
+<%@page import="com.site.utils.Utility"%>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
