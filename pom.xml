@@ -16,9 +16,14 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
+			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
-			<version>1.2.1</version>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>jstl-api</artifactId>
+			<version>1.2</version>
 		</dependency>
 	</dependencies>
 	<build>
