@@ -2,27 +2,19 @@ package com.site.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Conn {
-	
-	public static void main(String args[]){
+	public static Connection getCon() {
+		Connection con = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useLegacyDatetimeCode=true","localtest","12345"); 
-			Statement stmt=con.createStatement();  
-			ResultSet rs=stmt.executeQuery("select * from sample");
-			while(rs.next())  
-				System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
-			con.close();
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useLegacyDatetimeCode=true","localtest","12345");			 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		return con;
 	}
 }
