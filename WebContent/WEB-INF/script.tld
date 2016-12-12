@@ -1,0 +1,17 @@
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>Site Custom TLD</short-name>
+	<tag>
+		<name>script</name>
+		<tag-class>com.site.taglibs.ScriptTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>src</name>
+		</attribute>
+		<attribute>
+			<name>req</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

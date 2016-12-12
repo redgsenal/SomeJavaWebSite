@@ -1,5 +1,7 @@
 <!-- always put taglibs on top first --> 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="style" uri="/WEB-INF/css.tld"%>
+<%@taglib prefix="js" uri="/WEB-INF/script.tld"%>
 <%@page import="com.site.global.Global"%>
 <%@page import="com.site.utils.Utility"%>
 <!doctype html>
@@ -21,10 +23,10 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/styles.css">
-        <script src="js/vendors/modernizr-2.8.3.min.js"></script>
+        <style:css req="${pageContext.request}" href="css/normalize.css"/>
+        <style:css req="${pageContext.request}" href="css/main.css"/>
+        <style:css req="${pageContext.request}" href="css/styles.css"/>
+        <js:script req="${pageContext.request}" src="js/vendors/modernizr-2.8.3.min.js"/>
     </head>
     <body>
     <p>Head</p>
