@@ -3,7 +3,7 @@ package com.site.taglibs;
 import javax.servlet.jsp.*;
 import java.io.*;
 
-public class ScriptTag extends SiteTag {
+public class ScriptTag extends PathTag {
 	private String src;
 
 	public void setSrc(String src) {

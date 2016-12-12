@@ -1,9 +1,9 @@
 <taglib>
 	<tlib-version>1.0</tlib-version>
 	<jsp-version>2.0</jsp-version>
-	<short-name>Site Custom TLD</short-name>
+	<short-name>Site Script TLD</short-name>
 	<tag>
-		<name>script</name>
+		<name>path</name>
 		<tag-class>com.site.taglibs.ScriptTag</tag-class>
 		<body-content>empty</body-content>
 		<attribute>

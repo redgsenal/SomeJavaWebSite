@@ -1,7 +1,8 @@
 <!-- always put taglibs on top first --> 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="style" uri="/WEB-INF/css.tld"%>
-<%@taglib prefix="js" uri="/WEB-INF/script.tld"%>
+<%@taglib prefix="style" uri="/WEB-INF/taglibs/css.tld"%>
+<%@taglib prefix="script" uri="/WEB-INF/taglibs/script.tld"%>
+<%@taglib prefix="image" uri="/WEB-INF/taglibs/image.tld"%>
 <%@page import="com.site.global.Global"%>
 <%@page import="com.site.utils.Utility"%>
 <!doctype html>
@@ -9,24 +10,24 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title><%=Utility.getSiteName(this)%></title>
+        <title><%=Utility.getSiteTitle(this)%></title>
         <meta name="description" content="<%=Utility.getSiteDescription(this)%>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<meta property="og:url" content="" />
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="SomeWebsite" />
-		<meta property="og:title" content="Some Website" />
-		<meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
-		<meta property="og:image" content="" />
+		<meta property="og:site_name" content="<%=Utility.getSiteName(this)%>" />
+		<meta property="og:title" content="<%=Utility.getSiteTitle(this)%>" />
+		<meta property="og:description" content="<%=Utility.getSiteDescription(this)%>" />
+		<meta property="og:image" content="<image:path req="${pageContext.request}" path="<%=Utility.getSiteShareImage(this)%>"/>" />
 		<meta property="og:locale" content="en_GB" />
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         
-        <style:css req="${pageContext.request}" href="css/normalize.css"/>
-        <style:css req="${pageContext.request}" href="css/main.css"/>
-        <style:css req="${pageContext.request}" href="css/styles.css"/>
-        <js:script req="${pageContext.request}" src="js/vendors/modernizr-2.8.3.min.js"/>
+        <style:path req="${pageContext.request}" href="css/normalize.css"/>
+        <style:path req="${pageContext.request}" href="css/main.css"/>
+        <style:path req="${pageContext.request}" href="css/styles.css"/>
+        <script:path req="${pageContext.request}" src="js/vendors/modernizr-2.8.3.min.js"/>
     </head>
     <body>
     <p>Head</p>

@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.*;
 import java.io.*;
 
-public class SiteTag extends SimpleTagSupport {
+public class PathTag extends SimpleTagSupport {
 	protected HttpServletRequest req;
 
 	public void setReq(HttpServletRequest req) {

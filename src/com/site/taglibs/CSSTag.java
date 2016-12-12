@@ -3,7 +3,7 @@ package com.site.taglibs;
 import javax.servlet.jsp.*;
 import java.io.*;
 
-public class CSSTag extends SiteTag {
+public class CSSTag extends PathTag {
 	private String href;
 
 	public void setHref(String href) {
