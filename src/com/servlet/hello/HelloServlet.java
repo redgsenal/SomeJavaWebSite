@@ -1,6 +1,8 @@
 package com.servlet.hello;
 
 import com.servlet.router.GenericServlet;
+import com.site.db.Conn;
+
 import java.io.IOException;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -27,13 +29,13 @@ public class HelloServlet extends GenericServlet implements Servlet {
      */
     public HelloServlet(String content) {
         super(content);
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	new Conn().getCon(this);
 		super.doGet(request, response);
 	}
 

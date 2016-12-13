@@ -11,9 +11,10 @@ import com.site.utils.DBProperties;
 public class Conn {
 	public static Connection getCon(HttpServlet sc) {
 		Connection con = null;
+		DBProperties props = new DBProperties();
 		try {
-			Class.forName(DBProperties.getDriverName(sc));
-			con = DriverManager.getConnection(DBProperties.getDBUrl(sc),DBProperties.getDBUserName(sc),DBProperties.getDBUserPassword(sc));			 
+			Class.forName(props.getDriverName(sc));
+			con = DriverManager.getConnection(props.getDBUrl(sc),props.getDBUserName(sc),props.getDBUserPassword(sc));			 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
