@@ -4,12 +4,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpServlet;
+
+import com.site.utils.DBProperties;
+
 public class Conn {
-	public static Connection getCon() {
+	public static Connection getCon(HttpServlet sc) {
 		Connection con = null;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useLegacyDatetimeCode=true","localtest","12345");			 
+			Class.forName(DBProperties.getDriverName(sc));
+			con = DriverManager.getConnection(DBProperties.getDBUrl(sc),DBProperties.getDBUserName(sc),DBProperties.getDBUserPassword(sc));			 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

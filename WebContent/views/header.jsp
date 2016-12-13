@@ -3,22 +3,21 @@
 <%@taglib prefix="style" uri="/WEB-INF/taglibs/css.tld"%>
 <%@taglib prefix="script" uri="/WEB-INF/taglibs/script.tld"%>
 <%@taglib prefix="image" uri="/WEB-INF/taglibs/image.tld"%>
-<%@page import="com.site.global.Global"%>
-<%@page import="com.site.utils.Utility"%>
+<%@page import="com.site.utils.SiteProperties"%>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title><%=Utility.getSiteTitle(this)%></title>
-        <meta name="description" content="<%=Utility.getSiteDescription(this)%>">
+        <title><%=SiteProperties.getSiteTitle(this)%></title>
+        <meta name="description" content="<%=SiteProperties.getSiteDescription(this)%>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<meta property="og:url" content="" />
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="<%=Utility.getSiteName(this)%>" />
-		<meta property="og:title" content="<%=Utility.getSiteTitle(this)%>" />
-		<meta property="og:description" content="<%=Utility.getSiteDescription(this)%>" />
+		<meta property="og:site_name" content="<%=SiteProperties.getSiteName(this)%>" />
+		<meta property="og:title" content="<%=SiteProperties.getSiteTitle(this)%>" />
+		<meta property="og:description" content="<%=SiteProperties.getSiteDescription(this)%>" />
 		<%-- <meta property="og:image" content="<image:path req="${pageContext.request}" path="<%=Utility.getSiteDescription(this)%>"/>" /> --%>
 		<meta property="og:locale" content="en_GB" />
 
