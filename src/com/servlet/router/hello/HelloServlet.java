@@ -1,41 +1,49 @@
-package com.servlet.home;
+package com.servlet.router.hello;
+
+import com.servlet.router.GenericServlet;
+import com.site.db.Conn;
 
 import java.io.IOException;
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.servlet.router.GenericServlet;
-import com.site.global.Attribute;
-
 /**
- * Servlet implementation class HomeServlet
+ * Servlet implementation class HelloServlet
  */
-public class HomeServlet extends GenericServlet {
+@WebServlet("/HelloServlet")
+public class HelloServlet extends GenericServlet implements Servlet {
 	private static final long serialVersionUID = 1L;
-	
-	protected static String HOME_FOOTER = "views/home/footer.jsp";
+
+    /**
+     * Default constructor. 
+     */
+    public HelloServlet() {
+    	super("views/hello/hello.jsp");
+    }
        
     /**
-     * @see HttpServlet#HttpServlet()
+     * @see GenericServlet#GenericServlet(String)
      */
-    public HomeServlet() {
-        super("views/home/home.jsp");		
+    public HelloServlet(String content) {
+        super(content);
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		setAttribute(Attribute.ATTR_SITE_NAME,"HOME");
-		this.showContent(request, response);
+		super.doGet(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }

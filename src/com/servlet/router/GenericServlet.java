@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.site.sys.X;
+
 /**
  * Servlet implementation class HomeServelet
  */
@@ -18,13 +20,13 @@ public class GenericServlet extends HttpServlet implements GenericServletActions
 	protected static String HEADER_PAGE = "views/header.jsp";
 	protected static String FOOTER_PAGE = "views/footer.jsp";
 	protected String content = "content.jsp"; 
-	protected static String PAGE_TITLE = "Very Simple Page";
 	
     /**
      * @see HttpServlet#HttpServlet()
      */
     public GenericServlet(String content) {
         super();
+        X.log("init generic");
         this.content = content;
     }
 
