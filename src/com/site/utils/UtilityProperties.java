@@ -6,8 +6,6 @@ import java.util.Properties;
 
 import javax.servlet.http.HttpServlet;
 
-import com.site.sys.X;
-
 public class UtilityProperties {
 
 	protected static Properties props = null;
@@ -17,7 +15,6 @@ public class UtilityProperties {
 		Properties props = new Properties();
 		try {
 			props.load(new FileInputStream(sc.getServletContext().getRealPath(propertyFilePath)));
-			X.log("init props - ".concat(propertyFilePath));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -25,7 +22,6 @@ public class UtilityProperties {
 	}
 
 	protected static String readProperty(Properties props, HttpServlet sc, String attrName, String propertyFilePath){
-		X.log("read property ".concat(propertyFilePath));
 		if (props == null){
 			props = loadPropertyFile(sc, propertyFilePath);
 		}

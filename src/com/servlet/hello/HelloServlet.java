@@ -35,7 +35,6 @@ public class HelloServlet extends GenericServlet implements Servlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	new Conn().getCon(this);
 		super.doGet(request, response);
 	}
 

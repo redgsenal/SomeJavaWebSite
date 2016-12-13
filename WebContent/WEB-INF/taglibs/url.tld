@@ -1,17 +1,14 @@
 <taglib>
 	<tlib-version>1.0</tlib-version>
 	<jsp-version>2.0</jsp-version>
-	<short-name>Site Image TLD</short-name>
+	<short-name>Site URL TLD</short-name>
 	<tag>
 		<name>path</name>
-		<tag-class>com.site.taglibs.ImageTag</tag-class>
+		<tag-class>com.site.taglibs.UrlTag</tag-class>
 		<body-content>empty</body-content>
 		<attribute>
 			<name>path</name>
 			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-		<attribute>
-			<name>classname</name>
 		</attribute>
 		<attribute>
 			<name>req</name>
