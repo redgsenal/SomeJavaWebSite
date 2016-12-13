@@ -19,7 +19,7 @@
 		<meta property="og:site_name" content="<%=Utility.getSiteName(this)%>" />
 		<meta property="og:title" content="<%=Utility.getSiteTitle(this)%>" />
 		<meta property="og:description" content="<%=Utility.getSiteDescription(this)%>" />
-		<meta property="og:image" content="<image:path req="${pageContext.request}" path="<%=Utility.getSiteShareImage(this)%>"/>" />
+		<%-- <meta property="og:image" content="<image:path req="${pageContext.request}" path="<%=Utility.getSiteDescription(this)%>"/>" /> --%>
 		<meta property="og:locale" content="en_GB" />
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">

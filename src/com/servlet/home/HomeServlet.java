@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.servlet.router.GenericServlet;
-import com.site.global.Global;
+import com.site.global.Attribute;
 
 /**
  * Servlet implementation class HomeServlet
@@ -28,7 +28,7 @@ public class HomeServlet extends GenericServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		setAttribute(Global.ATTR_SITE_NAME,"HOME");
+		setAttribute(Attribute.ATTR_SITE_NAME,"HOME");
 		this.showContent(request, response);
 	}
 
