@@ -1,7 +1,6 @@
 package com.servlet.router.hello;
 
 import com.servlet.router.GenericServlet;
-import com.site.db.Conn;
 
 import java.io.IOException;
 import javax.servlet.Servlet;
