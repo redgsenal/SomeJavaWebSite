@@ -4,7 +4,6 @@ import java.util.Properties;
 
 import javax.servlet.http.HttpServlet;
 import com.site.global.Attribute;
-import com.site.sys.X;
 
 public class SiteProperties extends UtilityProperties {
 	

@@ -4,6 +4,7 @@
 <%@taglib prefix="script" uri="/WEB-INF/taglibs/script.tld"%>
 <%@taglib prefix="url" uri="/WEB-INF/taglibs/url.tld"%>
 <%@taglib prefix="image" uri="/WEB-INF/taglibs/image.tld"%>
+<%@taglib prefix="nonce" uri="/WEB-INF/taglibs/nonce.tld"%>
 <%@page import="com.site.utils.SiteProperties"%>
 <%
 	SiteProperties props = new SiteProperties();
@@ -35,3 +36,5 @@
     <body>
     <p>Head</p>
     <image:path req="${pageContext.request}" path="images/sample.jpg" classname="image-box"/>
+    <nonce:input/>
+    

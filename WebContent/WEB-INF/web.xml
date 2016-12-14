@@ -16,7 +16,7 @@
 		<description></description>
 		<display-name>home</display-name>
 		<servlet-name>HomeServlet</servlet-name>
-		<servlet-class>com.servlet.home.HomeServlet</servlet-class>
+		<servlet-class>com.servlet.router.home.HomeServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeServlet</servlet-name>
@@ -26,7 +26,7 @@
 		<description></description>
 		<display-name>hello</display-name>
 		<servlet-name>HelloServlet</servlet-name>
-		<servlet-class>com.servlet.hello.HelloServlet</servlet-class>
+		<servlet-class>com.servlet.router.hello.HelloServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>HelloServlet</servlet-name>
