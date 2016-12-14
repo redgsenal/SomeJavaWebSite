@@ -6,13 +6,12 @@
 		<name>input</name>
 		<tag-class>com.site.taglibs.NonceTag</tag-class>
 		<body-content>empty</body-content>
-		<!-- <attribute>
-			<name>path</name>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
 		<attribute>
 			<name>req</name>
 			<rtexprvalue>true</rtexprvalue>
-		</attribute> -->
+		</attribute>
+		<attribute>
+			<name>noncename</name>
+		</attribute>
 	</tag>
 </taglib>

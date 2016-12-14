@@ -11,7 +11,7 @@ public class SiteRand {
 	 * @return a random string of length len; must be > 5 but < 128, default to 32
 	 * @throws NoSuchAlgorithmException
 	 */
-	public static String generateString(int len) throws NoSuchAlgorithmException{
+	public static String generateRandomString(int len) throws NoSuchAlgorithmException{
 		if (len < 5 || len > 128)
 			len = 32;
 		

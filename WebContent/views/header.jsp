@@ -36,5 +36,5 @@
     <body>
     <p>Head</p>
     <image:path req="${pageContext.request}" path="images/sample.jpg" classname="image-box"/>
-    <nonce:input/>
+    <nonce:input noncename="nonce-test" req="${pageContext.request}"/>
     
