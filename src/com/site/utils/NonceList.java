@@ -1,9 +1,13 @@
 package com.site.utils;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.site.sys.X;
 
 public class NonceList {
 	private Hashtable<String, Hashtable<String, String>> sessionNonce = new Hashtable<String, Hashtable<String, String>>();
@@ -41,10 +45,18 @@ public class NonceList {
 	
 	@Override
 	public String toString() {
-		StringBuffer sb = new StringBuffer("nonce list: ");
+		if (sessionNonce.isEmpty())
+			return "session nonce is empty";
+		
+		StringBuffer sb = new StringBuffer();
 		Iterator<String> sessionIdKeys = sessionNonce.keySet().iterator();
 		while(sessionIdKeys.hasNext()){
-			String id = sessionIdKeys.next();			
+			String id = sessionIdKeys.next();
+			if (sb.toString().isEmpty()){
+				sb.append("nonce list: ");
+			}else{
+				sb.append(",");
+			}
 			sb.append("session_id => ").append(id).append("[");
 			Hashtable<String, String> nonceList = (Hashtable<String, String>) sessionNonce.get(id);
 			Iterator<String> nonceNames = nonceList.keySet().iterator();
@@ -57,5 +69,58 @@ public class NonceList {
 			sb.append("]");
 		}
 		return sb.toString();
+	}
+
+	public boolean validate(HttpServletRequest request) {
+		String nonceValue = request.getParameter("nonceValue");
+		String nonceName = request.getParameter("nonceName");
+		if (!isHttpRequestNonceValid(request, nonceName, nonceValue))
+			return false;
+		Enumeration<String> ens = request.getAttributeNames();
+		while(ens.hasMoreElements()){
+			String ns = ens.nextElement();
+			X.log("attr " + ns);
+		}
+		// get session id of the request
+		String sessionId = request.getRequestedSessionId();
+		Hashtable<String, String> nonceList = sessionNonce.get(sessionId);
+		if (nonceList == null || nonceList.isEmpty())
+			return false;
+		X.log("session id " + sessionId);
+		X.log("nonce value " + nonceValue);
+		X.log("nonce name " + nonceName);
+		boolean isValid = nonceList.get(nonceName).contentEquals(nonceValue);
+		if (isValid)
+			invalidateNonce(request, nonceName, nonceValue, nonceList);
+		return isValid;
+	}
+	
+	public void invalidateNonce(HttpServletRequest request, String nonceName, String nonceValue, Hashtable<String, String> list){
+		if (!list.isEmpty())
+			list.remove(nonceName, nonceValue);
+		if (list.isEmpty()){
+			String sessionId = request.getRequestedSessionId();
+			sessionNonce.remove(sessionId);
+		}
+		X.log(list.toString());
+	}
+	
+	public void invalidateNonce(HttpServletRequest request){
+		String nonceValue = request.getParameter("nonceValue");
+		String nonceName = request.getParameter("nonceName");
+		if (!isHttpRequestNonceValid(request, nonceName, nonceValue))
+			return;
+		Hashtable<String, String> list = getNonceList(nonceValue, request);
+		invalidateNonce(request, nonceName, nonceValue, list);
+	}
+	
+	private Hashtable<String, String> getNonceList(String nonceValue, HttpServletRequest request){
+		String sessionId = request.getRequestedSessionId();
+		Hashtable<String, String> nonceList = sessionNonce.get(sessionId);
+		return nonceList;
+	}
+	
+	private boolean isHttpRequestNonceValid(HttpServletRequest request, String nonceName, String nonceValue){
+		return ((nonceValue != null && !nonceValue.isEmpty()) && (nonceName !=null && !nonceName.isEmpty()) && (!sessionNonce.isEmpty()));
 	}
 }

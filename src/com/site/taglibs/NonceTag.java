@@ -31,6 +31,7 @@ public class NonceTag extends HttpServletTag {
 		X.log("nonce setup " + req.getRequestedSessionId() + " " + nonceName + " " + nonceValue);
 		X.log("nonce items " + nonceList.toString());
 
-		print("<input type='hidden' name='" + nonceName + "' value='".concat(nonceValue).concat("'/>"));
+		print("<input type='hidden' name='nonceValue' value='".concat(nonceValue).concat("'/>"));
+		print("<input type='hidden' name='nonceName' value='".concat(nonceName).concat("'/>"));
 	}
 }
