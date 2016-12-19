@@ -2,6 +2,7 @@ package com.site.utils;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Set;
 
 public class NonceList {
@@ -41,14 +42,16 @@ public class NonceList {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer("nonce list: ");
-		Set<String> sessionIdKeys = sessionNonce.keySet();
-		for(String k : sessionIdKeys){			
-			sb.append("session_id => ").append(k).append("[");
-			Hashtable<String, String> nonceList = (Hashtable<String, String>) sessionNonce.get(k);
-			Set<String> nonceNames = nonceList.keySet();
-			for(String kk : nonceNames){
-				String nonceValue = nonceList.get(kk);
-				sb.append("{nonce_name => ").append(kk).append(",");
+		Iterator<String> sessionIdKeys = sessionNonce.keySet().iterator();
+		while(sessionIdKeys.hasNext()){
+			String id = sessionIdKeys.next();			
+			sb.append("session_id => ").append(id).append("[");
+			Hashtable<String, String> nonceList = (Hashtable<String, String>) sessionNonce.get(id);
+			Iterator<String> nonceNames = nonceList.keySet().iterator();
+			while(nonceNames.hasNext()){
+				String nonceName = nonceNames.next();
+				String nonceValue = nonceList.get(nonceName);
+				sb.append("{nonce_name => ").append(nonceName).append(", ");
 				sb.append("nonce_value => ").append(nonceValue).append("}");
 			}
 			sb.append("]");
