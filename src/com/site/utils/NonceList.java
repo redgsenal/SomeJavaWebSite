@@ -19,6 +19,15 @@ public class NonceList {
 		return (String) nonceItems.get(nonceName);
 	}
 	
+	public String generateName() {
+		try {
+			return SiteRand.generateRandomString(5);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
 	public String generateNonce(String requestedSessionId, String nonceName) {
 		String nonceValue = "";
 		try {
@@ -75,12 +84,7 @@ public class NonceList {
 		String nonceValue = request.getParameter("nonceValue");
 		String nonceName = request.getParameter("nonceName");
 		if (!isHttpRequestNonceValid(request, nonceName, nonceValue))
-			return false;
-		Enumeration<String> ens = request.getAttributeNames();
-		while(ens.hasMoreElements()){
-			String ns = ens.nextElement();
-			X.log("attr " + ns);
-		}
+			return false;		
 		// get session id of the request
 		String sessionId = request.getRequestedSessionId();
 		Hashtable<String, String> nonceList = sessionNonce.get(sessionId);
@@ -89,7 +93,8 @@ public class NonceList {
 		X.log("session id " + sessionId);
 		X.log("nonce value " + nonceValue);
 		X.log("nonce name " + nonceName);
-		boolean isValid = nonceList.get(nonceName).contentEquals(nonceValue);
+		// nonceValue shouldn't be null while the value from the list can be null
+		boolean isValid = nonceValue.contentEquals(nonceList.get(nonceName));
 		if (isValid)
 			invalidateNonce(request, nonceName, nonceValue, nonceList);
 		return isValid;

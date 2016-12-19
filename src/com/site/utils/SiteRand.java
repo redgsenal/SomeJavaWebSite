@@ -18,7 +18,7 @@ public class SiteRand {
 		char[] VALID_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456879".toCharArray();
 		SecureRandom rd = SecureRandom.getInstance("SHA1PRNG");
 		StringBuffer sb = new StringBuffer();
-		while(sb.length() < 20){
+		while(sb.length() < len){
 			sb.append(VALID_CHARACTERS[rd.nextInt(VALID_CHARACTERS.length)]);
 		}
 		return sb.toString();

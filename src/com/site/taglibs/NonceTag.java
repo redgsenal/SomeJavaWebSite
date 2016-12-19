@@ -24,6 +24,9 @@ public class NonceTag extends HttpServletTag {
 		if (nonceList == null) {
 			nonceList = new NonceList();
 		}
+		
+		if (nonceName == null || nonceName.isEmpty())
+			nonceName = nonceList.generateName();
 		nonceValue = nonceList.generateNonce(req.getRequestedSessionId(), nonceName);
 		nonceList.add(req.getRequestedSessionId(), nonceName, nonceValue);
 		sc.setAttribute("nonce", nonceList);
