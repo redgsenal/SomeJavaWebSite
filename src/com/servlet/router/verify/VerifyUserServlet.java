@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class VerifyUser
@@ -33,7 +34,7 @@ public class VerifyUserServlet extends HttpServlet{
 		// process form post
 		X.log("post here");
 		// let get the nonce here
-		ServletContext sc = request.getServletContext();
+		HttpSession sc = request.getSession();
 		NonceList nonce = (NonceList) sc.getAttribute("nonce");
 		if (nonce != null){
 			X.log(nonce.toString());

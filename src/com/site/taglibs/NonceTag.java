@@ -2,7 +2,7 @@ package com.site.taglibs;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspException;
 
 import com.site.sys.X;
@@ -18,8 +18,14 @@ public class NonceTag extends HttpServletTag {
 	@Override
 	public void doTag() throws JspException, IOException {
 		String nonceValue = "";
-		X.log(req.getRequestedSessionId());
-		ServletContext sc = req.getServletContext();
+		X.log("request");
+		if (req == null)
+			X.log("req == null");
+		else
+			X.log("req NOT null");
+		X.log("session id");
+		X.log(req.getSession().getId());
+		HttpSession sc = req.getSession();
 		NonceList nonceList = (NonceList) sc.getAttribute("nonce");
 		if (nonceList == null) {
 			nonceList = new NonceList();
@@ -27,8 +33,8 @@ public class NonceTag extends HttpServletTag {
 		
 		if (nonceName == null || nonceName.isEmpty())
 			nonceName = nonceList.generateName();
-		nonceValue = nonceList.generateNonce(req.getRequestedSessionId(), nonceName);
-		nonceList.add(req.getRequestedSessionId(), nonceName, nonceValue);
+		nonceValue = nonceList.generateNonce();
+		nonceList.add(req.getSession().getId(), nonceName, nonceValue);
 		sc.setAttribute("nonce", nonceList);
 		
 		X.log("nonce setup " + req.getRequestedSessionId() + " " + nonceName + " " + nonceValue);
