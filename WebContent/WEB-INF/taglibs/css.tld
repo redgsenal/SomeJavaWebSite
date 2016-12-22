@@ -3,7 +3,7 @@
 	<jsp-version>2.0</jsp-version>
 	<short-name>Site CSS TLD</short-name>
 	<tag>
-		<name>path</name>
+		<name>css</name>
 		<tag-class>com.site.taglibs.CSSTag</tag-class>
 		<body-content>empty</body-content>		
 		<attribute>

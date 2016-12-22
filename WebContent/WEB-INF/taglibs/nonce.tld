@@ -3,7 +3,7 @@
 	<jsp-version>2.0</jsp-version>
 	<short-name>Site Nonce TLD</short-name>
 	<tag>
-		<name>input</name>
+		<name>hidden</name>
 		<tag-class>com.site.taglibs.NonceTag</tag-class>
 		<body-content>empty</body-content>
 		<attribute>

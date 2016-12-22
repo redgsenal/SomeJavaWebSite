@@ -3,12 +3,9 @@
 	<jsp-version>2.0</jsp-version>
 	<short-name>Form TLD</short-name>
 	<tag>
-		<name>entry</name>
-		<tag-class>com.site.taglibs.InputEntryTag</tag-class>
+		<name>form</name>
+		<tag-class>com.site.taglibs.InputFormTag</tag-class>
 		<body-content>empty</body-content>
-		<attribute>
-			<name>typeAttr</name>
-		</attribute>
 		<attribute>
 			<name>nameAttr</name>
 		</attribute>
@@ -17,6 +14,12 @@
 		</attribute>
 		<attribute>
 			<name>idAttr</name>
+		</attribute>
+		<attribute>
+			<name>actionAttr</name>
+		</attribute>
+		<attribute>
+			<name>methodAttr</name>
 		</attribute>
 		<attribute>
 			<name>req</name>

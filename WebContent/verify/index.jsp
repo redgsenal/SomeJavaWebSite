@@ -2,7 +2,7 @@
 <div class="wrapper">
 	<form action="/SomeWebSite/VerifyUser" method="POST">
 		<label>Name: </label><input type="text" name="username">
-		<nonce:input req="${pageContext.request}"/>
+		<nonce:hidden req="${pageContext.request}"/>
 		<input type="submit" value="Submit">
 	</form>
 </div>

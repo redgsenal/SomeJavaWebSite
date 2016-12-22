@@ -6,6 +6,7 @@
 <%@taglib prefix="image" uri="/WEB-INF/taglibs/image.tld"%>
 <%@taglib prefix="nonce" uri="/WEB-INF/taglibs/nonce.tld"%>
 <%@taglib prefix="input" uri="/WEB-INF/taglibs/input.tld"%>
+<%@taglib prefix="form" uri="/WEB-INF/taglibs/form.tld"%>
 <%@page import="com.site.utils.SiteProperties"%>
 <%
 	SiteProperties props = new SiteProperties();
@@ -29,10 +30,10 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         
-        <style:path req="${pageContext.request}" href="css/normalize.css"/>
-        <style:path req="${pageContext.request}" href="css/main.css"/>
-        <style:path req="${pageContext.request}" href="css/styles.css"/>
-        <script:path req="${pageContext.request}" src="js/vendors/modernizr-2.8.3.min.js"/>
+        <style:css req="${pageContext.request}" href="css/normalize.css"/>
+        <style:css req="${pageContext.request}" href="css/main.css"/>
+        <style:css req="${pageContext.request}" href="css/styles.css"/>
+        <script:js req="${pageContext.request}" src="js/vendors/modernizr-2.8.3.min.js"/>
     </head>
     <body>
     <p>Head</p>

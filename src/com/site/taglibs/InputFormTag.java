@@ -4,35 +4,26 @@ import java.io.IOException;
 
 import javax.servlet.jsp.JspException;
 
-public class InputFormTag extends SimpleTag {
+public class InputFormTag extends InputBaseTag {
 	
-	private String nameAttr = null;
-	private String classAttr = null;
-	private String idAttr = null;
 	private String actionAttr = null;
+	private String methodAttr = null;
 	
-	public void setNameAttr(String nameAttr) {
-		this.nameAttr = nameAttr;
-	}
-
-	public void setClassAttr(String classAttr) {
-		this.classAttr = classAttr;
-	}
-
-	public void setIdAttr(String idAttr) {
-		this.idAttr = idAttr;
-	}
-
 	public void setActionAttr(String actionAttr) {
 		this.actionAttr = actionAttr;
 	}
 
+	public void setMethodAttr(String methodAttr) {
+		this.methodAttr = methodAttr;
+	}
+
 	@Override
 	public void doTag() throws JspException, IOException {
-		print("<form class='".concat(classAttr).concat("' name='").concat(nameAttr).concat("' id='").concat(idAttr).concat("' ").concat("action='").concat(actionAttr).concat("' />"));
-	}
-	
-	protected void print(String s) throws IOException{
-		getJspContext().getOut().println(s);
+		StringBuffer sb = addBaseAttr("form");
+		concatAttr(sb, "action", actionAttr);
+		methodAttr = methodAttr == null || methodAttr.isEmpty() ? "GET" : "POST";
+		concatAttr(sb, "method", methodAttr);
+		sb.append("/>");
+		print(sb.toString());
 	}
 }
