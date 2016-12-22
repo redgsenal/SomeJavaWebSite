@@ -1,0 +1,26 @@
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>Site CSS TLD</short-name>
+	<tag>
+		<name>path</name>
+		<tag-class>com.site.taglibs.InputFormTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>nameAttr</name>
+		</attribute>
+		<attribute>
+			<name>classAttr</name>
+		</attribute>
+		<attribute>
+			<name>idAttr</name>
+		</attribute>
+		<attribute>
+			<name>actionAttr</name>
+		</attribute>
+		<attribute>
+			<name>req</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>	
+</taglib>

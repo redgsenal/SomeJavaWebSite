@@ -5,6 +5,7 @@
 <%@taglib prefix="url" uri="/WEB-INF/taglibs/url.tld"%>
 <%@taglib prefix="image" uri="/WEB-INF/taglibs/image.tld"%>
 <%@taglib prefix="nonce" uri="/WEB-INF/taglibs/nonce.tld"%>
+<%@taglib prefix="input" uri="/WEB-INF/taglibs/input.tld"%>
 <%@page import="com.site.utils.SiteProperties"%>
 <%
 	SiteProperties props = new SiteProperties();
